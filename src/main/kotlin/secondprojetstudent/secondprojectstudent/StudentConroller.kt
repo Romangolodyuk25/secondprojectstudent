@@ -10,13 +10,12 @@ class StudentController {
 var studentService = StudentService()
 
     @GetMapping("/returnStudents")
-    fun returnStundets():Map<Long,Student> {
-        return returnStundets()
+    fun returnStudents():Map<Long, Student> {
+        return studentService.returnStudent()
     }
 
     @GetMapping("/addStudent")
-    fun addStudent(@RequestParam id:Long,
-                   @RequestParam name:String,
+    fun addStudent(@RequestParam name:String,
                    @RequestParam lastname:String,
                    @RequestParam age:Int,
                    @RequestParam yearOfBirth:Int,
@@ -32,7 +31,7 @@ var studentService = StudentService()
         addStudent.course = course
         addStudent.yearOfBirth = yearOfBirth
 
-        studentService.addStudent(id,addStudent)
+        studentService.addStudent(addStudent)
     }
 
     @GetMapping("/deleteStudent")
@@ -42,7 +41,7 @@ var studentService = StudentService()
 
     @GetMapping("/searchStudent")
     fun searchStudent(@RequestParam id: Long):Student {
-        return searchStudent(id)
+        return studentService.searchStudent(id)
     }
 
     @GetMapping("/changeStudent")

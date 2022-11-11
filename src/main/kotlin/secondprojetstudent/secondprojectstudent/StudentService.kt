@@ -8,8 +8,8 @@ class StudentService {
         return students
     }
 
-    fun addStudent(id:Long, student : Student) {
-        students.put(id, student)
+    fun addStudent(student : Student) {
+        students.put(idStudent,student)
         idStudent++
     }
 
@@ -17,7 +17,7 @@ class StudentService {
         students.remove(idStudent)
     }
 
-    fun searchStudent(id:Long): Student {
+    fun searchStudent(id: Long): Student {
         return students.get(id)!!
     }
 
